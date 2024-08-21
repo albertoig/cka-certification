@@ -1,5 +1,5 @@
 
-::: mermaid
+```mermaid
 ---
 Title: How to communicate with the cluster
 ---
@@ -10,4 +10,4 @@ flowchart LR;
     B-->E[WORKER NODE 1];
     B-->F[WORKER NODE 2];
     B-->G[WORKER NODE 3];
-:::
+```
