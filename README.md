@@ -1,7 +1,5 @@
 
-
-
-# REPOSITORY SETUP
+# PROJECT SETUP
 ## GIT CONFIGURATIONS
 GPG signing is mandatory, you must sign your commits, [vigilant](https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits) mode is activated in this repository. 
 
