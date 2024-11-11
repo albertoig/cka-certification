@@ -15,3 +15,14 @@ This is how to do it:
 The repository use terraform to prepare the basic infrastructure to study for the CKA exam. You will need:
 - AWS credentials in your session to fetch the state file. ([Here is how to](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)) 
 - Digital Ocean credentials in your session to deploy infrastructure. ([Here is how to](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs))
+
+> [!IMPORTANT]  
+> Install [digital ocean CLI](https://docs.digitalocean.com/reference/doctl/how-to/install/) to set up kubernetes config faster
+
+
+# Study progress
+[ ] Label&Selectors
+[ ] ReplicaSets
+[X] Deployments YAML
+[ ] Deployments CLI
+

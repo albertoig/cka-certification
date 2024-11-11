@@ -24,7 +24,7 @@ kubectl rollout history deployment.v1.apps/nginx-deployment --revision 1
 kubectl rollout history deployment.v1.apps/nginx-deployment --revision 2
 
 # ROLLBACK CHANGES
-kubectl rollout undo deployment.v1.apps/nginx-deployment  --to-revion=1
+kubectl rollout undo deployment.v1.apps/nginx-deployment --to-revision 1
 kubectl get rs
 kubectl describe deployments nginx-deployment
  # Check that now you have a new version, no the version 1
