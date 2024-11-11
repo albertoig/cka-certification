@@ -8,6 +8,7 @@ This is how to do it:
 - Add GPG key to your [Github account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
     - This is how you copy [the GPG public key](https://gist.github.com/lysender/2dbab9ee6913fb3b6d54f0764a5554c2).
 - Add the GPG key to your [GIT configuration](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
+- Remenber to add `git config --global commit.gpgsign true` to your configuration to ensure that commits are signed.
 - If you have multiple .gitconfigs, remenber to use user.signingkey parameter. 
 
 ## TERRAFORM CONFIGURATIONS
