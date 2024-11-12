@@ -23,6 +23,7 @@ The repository use terraform to prepare the basic infrastructure to study for th
 # Study progress
 [ ] Label&Selectors
 [ ] ReplicaSets
-[X] Deployments YAML
-[ ] Deployments CLI
-
+[ ] Deployments
+    [ ] YAML
+    [ ] CLI
+    [ ] IMPORTANT FOR EXAM

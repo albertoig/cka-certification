@@ -34,10 +34,69 @@ kubectl rollout history deployment.v1.apps/nginx-deployment
 kubectl delete -f example-deployment-2.yaml
 ```
 
-## Example with CLI
-```bash
-# RUN THE EXAMPLE cli
-```
-
 > [!IMPORTANT]  
 > After rolling back a version, a new version is generated.
+
+## Example with CLI
+```bash
+# RUN THE EXAMPLE CLI
+# CREATE DEPLOYMENT
+kubectl create deployment cka-deployment --image=nginx
+# CREATE DEPLOYMENT WITH 3 REPLICAS
+kubectl create deployment cka-deployment-2 --image=nginx --replicas 3
+kubectl get deployments
+kubectl get pods
+
+# PRINT YAML OF THE DEPLOYMENT WITHOUT EXECUTING ON THE K8S CLUSTER
+kubectl create deployment cka-deployment-3 --dry-run=client -o yaml
+
+# END EXAMPLE
+kubectl delete deployment cka-deployment
+kubectl delete deployment cka-deployment-2
+```
+
+## IMPORTANT FOR THE EXAM
+
+### 1. How rolling update a new image for the deployment
+```bash
+# CREATE EXAMPLE
+kubectl create deployment  nginx-deployment --image=nginx
+# SET IMAGE
+kubectl set image deployment nginx-deployment nginx=nginx:1.9.1 --record
+# DELETE EXAMPLE
+kubectl delete deployment nginx-deployment
+```
+### 2. Importance of --record parameter
+The record parameter add the cause of the change in the rollback history.
+```bash
+# CREATE EXAMPLE
+kubectl create deployment  nginx-deployment --image=nginx
+# SET IMAGE
+kubectl set image deployment nginx-deployment nginx=nginx:1.9.1 --record
+# SHOW HISTORY
+kubectl rollout history deployment.v1.apps/nginx-deployment
+# DELETE EXAMPLE
+kubectl delete deployment nginx-deployment
+```
+### 3. How to Rollback a deployment
+```bash
+# CREATE EXAMPLE
+kubectl create deployment  nginx-deployment --image=nginx
+# SET IMAGE
+kubectl set image deployment nginx-deployment nginx=nginx:1.9.1 --record
+# ROLLOUT TO PREVIOUS VERSION
+kubectl rollout undo deployment.v1.apps/nginx-deployment
+# ROLLOUT TO VERSION 1
+kubectl rollout undo deployment.v1.apps/nginx-deployment --to-revision 1
+# DELETE EXAMPLE
+kubectl delete deployment nginx-deployment
+```
+### 4. How to scale a deployment
+```bash
+# CREATE EXAMPLE
+kubectl create deployment  nginx-deployment --image=nginx
+# SCALE
+kubectl scale deployment nginx-deployment --replicas 8
+# DELETE EXAMPLE
+kubectl delete deployment nginx-deployment
+```
