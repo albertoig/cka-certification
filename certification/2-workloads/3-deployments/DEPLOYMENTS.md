@@ -6,7 +6,7 @@ add diagram here
 
 The most important concept of this object is the hability to have versions of a replicaSet and the capability of rolling out and rollback changes.
 
-## Playground
+## Example with YAML
 ```bash
 # RUN THE EXAMPLE 1
 kubectl apply -f example-deployment-1.yaml
@@ -29,10 +29,15 @@ kubectl get rs
 kubectl describe deployments nginx-deployment
  # Check that now you have a new version, no the version 1
 kubectl rollout history deployment.v1.apps/nginx-deployment
+
+# END THE EXAMPLE
+kubectl delete -f example-deployment-2.yaml
+```
+
+## Example with CLI
+```bash
+# RUN THE EXAMPLE cli
 ```
 
 > [!IMPORTANT]  
 > After rolling back a version, a new version is generated.
-
-## Playground only with CLI
-
