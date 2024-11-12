@@ -100,3 +100,7 @@ kubectl scale deployment nginx-deployment --replicas 8
 # DELETE EXAMPLE
 kubectl delete deployment nginx-deployment
 ```
+### 5. Create a YAlM manifest from CLI
+```bash
+kubectl create deployment cka-deployment-4 --image=nginx --dry-run=client -o yaml
+```
