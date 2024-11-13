@@ -1,3 +1,8 @@
+# TABLE OF CONTENT
+- [PROJECT SETUP](#project-setup)
+   * [GIT CONFIGURATIONS](#git-configurations)
+   * [TERRAFORM CONFIGURATIONS](#terraform-configurations)
+- [Study progress](#study-progress)
 
 # PROJECT SETUP
 ## GIT CONFIGURATIONS
