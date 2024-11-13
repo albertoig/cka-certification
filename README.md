@@ -42,6 +42,6 @@ The repository use terraform to prepare the basic infrastructure to study for th
 - [ ] ReplicaSets
 - [ ] Deployments
     - [X] YAML
-    - [ ] CLI
-    - [ ] IMPORTANT FOR EXAM
+    - [X] CLI
+    - [X] IMPORTANT FOR EXAM
 - [ ] DaemonSets
