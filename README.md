@@ -2,6 +2,7 @@
 - [PROJECT SETUP](#project-setup)
    * [GIT CONFIGURATIONS](#git-configurations)
    * [TERRAFORM CONFIGURATIONS](#terraform-configurations)
+- [CKA CONTENT](#cka-content)
 - [Study progress](#study-progress)
 
 # PROJECT SETUP
@@ -23,6 +24,17 @@ The repository use terraform to prepare the basic infrastructure to study for th
 
 > [!IMPORTANT]  
 > Install [digital ocean CLI](https://docs.digitalocean.com/reference/doctl/how-to/install/) to set up kubernetes config faster
+
+# CKA CONTENT
+1. [CORE](certification/1-core/README.md)
+2. WORKLOADS
+    2.1 [LABELS & SELECTORS](=certification/2-workloads/1-labels&selectors/README.md)
+    2.2 [REPLICASET](certification/2-workloads/2-replicaset/README.md)
+    2.3 [DEPLOYMENT](certification/2-workloads/3-deployments/README.md)
+    2.4 [DAEMONSET](certification/2-workloads/4-daemonsets/README.md)
+    2.5 [NODE SELECTOR](certification/2-workloads/5-node-selector/README.md)
+    2.6 [NODE AFFINITY](certification/2-workloads/6-node-affinity/README.md)
+    2.7 [RESOURCE LIMITS](certification/2-workloads/7-resource-limits/README.md)
 
 
 # Study progress
