@@ -32,17 +32,17 @@ The repository use terraform to prepare the basic infrastructure to study for th
     2. [REPLICASET](certification/2-workloads/2-replicaset/README.md)
     3. [DEPLOYMENT](certification/2-workloads/3-deployments/README.md)
     4. [DAEMONSET](certification/2-workloads/4-daemonsets/README.md)
-    5. [NODE SELECTOR](certification/2-workloads/5-node-selector/README.md)
-    6. [NODE AFFINITY](certification/2-workloads/6-node-affinity/README.md)
-    7. [RESOURCE LIMITS](certification/2-workloads/7-resource-limits/README.md)
+    5. [ASSIGNING PODS TO NODES](certification/2-workloads/5-assign-pods-nodes/README.md)
 
 
 # STUDY PROGRESS
 - [ ] Label&Selectors
 - [ ] ReplicaSets
-- [ ] Deployments
+- [X] Deployments
     - [X] YAML
     - [X] CLI
     - [X] IMPORTANT FOR EXAM
 - [X] DaemonSets
-- [ ] Node Selector
+- [X] Assign Pods to Nodes
+    - [X] Node Selector
+    - [X] Node Affinity

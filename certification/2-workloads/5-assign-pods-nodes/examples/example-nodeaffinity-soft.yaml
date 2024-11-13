@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: example-node-affinity-soft
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference: 
+            matchExpressions:
+            - key: memory
+              operator: In
+              values:
+              - high
+              - medium
+  containers:
+  - name: example-node-affinity-soft
+    image: nginx
