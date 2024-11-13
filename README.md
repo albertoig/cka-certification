@@ -44,4 +44,5 @@ The repository use terraform to prepare the basic infrastructure to study for th
     - [X] YAML
     - [X] CLI
     - [X] IMPORTANT FOR EXAM
-- [ ] DaemonSets
+- [X] DaemonSets
+- [ ] Node Selector
