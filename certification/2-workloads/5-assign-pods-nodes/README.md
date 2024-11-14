@@ -1,3 +1,12 @@
+- [2.5 Assign pods to nodes](#25-assign-pods-to-nodes)
+- [2.5.1 Node selector](#251-node-selector)
+- [2.5.2 Node Affinity](#252-node-affinity)
+   * [Hard example (requiredDuringSchedulingIgnoredDuringExecution)](#hard-example-requiredduringschedulingignoredduringexecution)
+   * [Soft example (preferredDuringSchedulingIgnoredDuringExecution)](#soft-example-preferredduringschedulingignoredduringexecution)
+- [2.5.3 Resource Limits](#253-resource-limits)
+- [2.5.4 Schedule a Pod without a Sheduler](#254-schedule-a-pod-without-a-sheduler)
+- [2.5.5 Taints and Tolerations](#255-taints-and-tolerations)
+
 # 2.5 Assign pods to nodes
 You can choose to [assign pods to nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) for different reasons, normally kubernetes will take care of that with a good performance, but there are exceptions where nodes have different attributes that a pod can only run in that node or group of nodes.
 
@@ -40,6 +49,9 @@ kubectl get pods -o wide
 
 # LIST NODES
 kubectl get nodes
+
+# DELETE EXAMPLE
+kubectl delete -f certification/2-workloads/5-assign-pods-nodes/examples/example-nodeselector-1.yaml
 ```
 
 # 2.5.2 Node Affinity
@@ -93,6 +105,9 @@ kubectl get pods -o wide
 
 # LIST NODES
 kubectl get nodes
+
+# DELETE EXAMPLE
+kubectl apply -f certification/2-workloads/5-assign-pods-nodes/examples/example-nodeaffinity-hard-notin.yaml
 ```
 > [!NOTE]  
 > You can use the operator field to specify a logical operator for Kubernetes to use when interpreting the rules. You can use In, NotIn, Exists, DoesNotExist, Gt and Lt.
@@ -118,4 +133,60 @@ kubectl get pods -o wide
 
 # LIST NODES
 kubectl get nodes
+
+# DELETE EXAMPLE
+kubectl delete -f certification/2-workloads/5-assign-pods-nodes/examples/example-nodeaffinity-soft.yaml
 ```
+
+# 2.5.3 Resource Limits
+
+- Request: Guaranteed quantity of resources to get in the container.
+- Limits: Makes sure the container does not get more resources above the specific value.
+
+```bash
+# DEPLOY EXAMPLE
+kubectl apply -f certification/2-workloads/5-assign-pods-nodes/examples/requests-limits.yaml
+
+# LIST PODS
+kubectl get pods -o wide
+
+# DESCRIBE NODE
+kubectl describe node <node>
+
+# DELETE EXAMPLE
+kubectl delete -f certification/2-workloads/5-assign-pods-nodes/examples/requests-limits.yaml
+```
+> [!NOTE]  
+> Request must be always be less than the limit.
+
+> [!NOTE]  
+> If there is not enouth CPU or Memory, K8S won't schedule the Pod
+
+# 2.5.4 Schedule a Pod without a Sheduler
+You can inform the kubelet of a node to run a speific pod without using the `kube-scheduler`. it's referred as [Static Pods](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/).
+
+We are not going to review this since we are using digital ocean and access the nodes is complicated.
+
+# 2.5.5 Taints and Tolerations
+[Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) is a property of Pods that attracts them to a set of nodes (either as a preference or a hard requirement). [Taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are the opposite -- they allow a node to repel a set of pods.
+
+
+*** ADD MORE EXAMPLES ***
+
+```bash
+# LIST NODES
+kubectl get nodes
+# APPLY TAINT TO NODE
+kubectl taint nodes <node> key1=value1:NoSchedule
+# DEPLOY EXAMPLE
+kubectl apply -f certification/2-workloads/5-assign-pods-nodes/examples/pod-with-tolerations.yaml
+# CHECK PODS AND WHERE THESE PODS ARE DEPLOYED
+kubectl get pods -o wide
+# REMOVE TAINT
+kubectl taint nodes <node> key1=value1:NoSchedule-
+# DELETE EXAMPLE
+kubectl delete -f certification/2-workloads/5-assign-pods-nodes/examples/pod-with-tolerations.yaml
+```
+
+> [!NOTE]  
+> To understand better the taints. Go to this [Link](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#example-use-cases)

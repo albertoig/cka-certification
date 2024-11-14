@@ -46,3 +46,6 @@ The repository use terraform to prepare the basic infrastructure to study for th
 - [X] Assign Pods to Nodes
     - [X] Node Selector
     - [X] Node Affinity
+    - [X] Resource request and limits
+    - [X] Schedling Pods without Scheduler
+    - [X] Taints and Tolerations

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-request-limits
+  labels:
+    app: example-request-limits
+spec:
+  containers:
+  - name: example-request-limits-container
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "128Mi"  # Request 128 MiB of memory
+        cpu: "100m"      # Request 0.1 CPU core
+      limits:
+        memory: "256Mi"  # Limit to 256 MiB of memory
+        cpu: "500m"      # Limit to 0.5 CPU core
+    ports:
+    - containerPort: 8080
