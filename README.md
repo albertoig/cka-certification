@@ -6,6 +6,13 @@
 - [STUDY PROGRESS](#study-progress)
 
 # PROJECT SETUP
+## TOOLS
+The following list outlines the tools required for this project, which you should have installed to utilize this repository to its fullest extent:
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [PyEnv](https://github.com/pyenv/pyenv)
+- [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
+- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
 ## GIT CONFIGURATIONS
 GPG signing is mandatory, you must sign your commits, [vigilant](https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits) mode is activated in this repository. 
 
@@ -25,6 +32,10 @@ The repository use terraform to prepare the basic infrastructure to study for th
 > [!IMPORTANT]  
 > Install [digital ocean CLI](https://docs.digitalocean.com/reference/doctl/how-to/install/) to set up kubernetes config faster
 
+## RECOMENDATIONS
+- Activate `poetry config virtualenvs.in-project true` in the project
+- [Multi workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) configurations [with python](https://github.com/microsoft/vscode-python/wiki/Mono-Repo-Set%E2%80%90up-Guide).
+    - How to [Change interpreter](https://stackoverflow.com/questions/48135624/how-can-i-change-the-python-version-in-visual-studio-code)
 # CKA CONTENT
 1. [CORE](certification/1-core/README.md)
 2. WORKLOADS
