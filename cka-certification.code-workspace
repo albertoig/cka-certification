@@ -1,13 +1,11 @@
 {
 	"folders": [
 		{
-			"path": ".", "name": "cka-certification"
+			"path": ".", "name": "CKA certification"
 		},
 		{
 			"path": "./certification/3-servicing&networking/examples/code/backend", "name": "3.1 Bancked Example"
 		}
 	],
-	"settings": {
-		"files.exclude" : { "./certification/3-servicing&networking/examples/code/": true},
-	}
+	"settings": {}
 }
