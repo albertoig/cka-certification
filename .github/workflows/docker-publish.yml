@@ -1,0 +1,43 @@
+name: Docker Build and Push Multiple Images
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    strategy:
+      matrix:
+        service:
+          - path: certification/3-servicing&networking/examples/code/backend
+            dockerfile: Dockerfile
+          - path: certification/3-servicing&networking/examples/code/frontend
+            dockerfile: Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push Docker image for ${{ matrix.service.path }}
+      uses: docker/build-push-action@v5
+      with:
+        context: ${{ matrix.service.path }}
+        push: true
+        tags: |
+          ${{ github.repository_owner }}/${{ matrix.service.path }}:latest
+          ghcr.io/${{ github.repository_owner }}/${{ matrix.service.path }}:latest
+        file: ${{ matrix.service.path }}/${{ matrix.service.dockerfile }}
