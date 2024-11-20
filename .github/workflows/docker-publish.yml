@@ -13,9 +13,9 @@ jobs:
     strategy:
       matrix:
         service:
-          - path: certification/3-servicing&networking/examples/code/backend
+          - path: certification/3-servicing-and-networking/examples/code/backend
             dockerfile: Dockerfile
-          - path: certification/3-servicing&networking/examples/code/frontend
+          - path: certification/3-servicing-and-networking/examples/code/frontend
             dockerfile: Dockerfile
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +38,6 @@ jobs:
         context: ${{ matrix.service.path }}
         push: true
         tags: |
-          ${{ github.repository_owner }}/${{ matrix.service.path }}:latest
-          ghcr.io/${{ github.repository_owner }}/${{ matrix.service.path }}:latest
+         ${{ github.repository }}/${{ matrix.service.path }}:latest
+          ghcr.io/${{ github.repository }}/${{ matrix.service.path }}:latest
         file: ${{ matrix.service.path }}/${{ matrix.service.dockerfile }}
