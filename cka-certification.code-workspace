@@ -1,10 +1,16 @@
 {
 	"folders": [
 		{
-			"path": ".", "name": "CKA certification"
+			"path": ".", 
+			"name": "CKA certification"
 		},
 		{
-			"path": "./certification/3-servicing&networking/examples/code/backend", "name": "3.1 Bancked Example"
+			"path": "./certification/3-servicing&networking/examples/code/backend", 
+			"name": "3.1 Bancked Example"
+		},
+		{
+			"path": "./certification/3-servicing&networking/examples/code/frentend", 
+			"name": "3.1 Frontend Example"
 		}
 	],
 	"settings": {}
