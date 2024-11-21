@@ -35,7 +35,5 @@ jobs:
       with:
         context: ${{ matrix.service.path }}
         push: true
-        tags: |
-         ${{ github.repository }}/${{ matrix.service.path }}:latest
-          ghcr.io/${{ github.repository }}/${{ matrix.service.path }}:latest
+        tags: ghcr.io/${{ github.repository }}/${{ matrix.service.path }}:latest
         file: ${{ matrix.service.path }}/${{ matrix.service.dockerfile }}
