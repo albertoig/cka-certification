@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl
+spec:
+  containers:
+  - name: curl
+    image: quay.io/curl/curl:latest
+    command: ["/bin/sh"]
+    args: ["-c", "tail -f /dev/null"]
+    tty: true
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "50m"
+      limits:
+        memory: "256Mi"
+        cpu: "500m"

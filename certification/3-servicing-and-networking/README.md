@@ -31,9 +31,44 @@ Kubernetes provides ways to scalate services, Getting the example of the `3.1 Se
 # Practices
 ## Service and Endpoint
 ![Practice 1](./diagrams/1.practice-services.excalidraw.png)
-As you can see in the diagram, the objective is to call from the navigator to the frontend URL and be able to retrieve information from the backend service. Once we call the frontend service, in an optimal situation, the service will respond with `Hello, This is the Frontend Example of the CKA exam! The backend call result is {"Hello":"World"}` where `{"Hello":"World"}` is coming from the backend service. To do so, we need to run the next commands:
+As you can see in the diagram, the objective is to call from the navigator to the frontend URL and be able to retrieve information from the backend service. Once we call the frontend service, in an optimal situation, the service will respond with `Hello, This is the Frontend Practice of the CKA exam! The backend call result is {"Hello":"World"}` where `{"Hello":"World"}` is coming from the backend service. To do so, we need to run the next commands:
 
+1. Apply backend service:
 ```bash
+kubectl apply -f practices/kubernetes/1-practice/backend-service.yaml 
 ```
-
-
+2. Apply backend Deployment:
+```bash
+kubectl apply -f practices/kubernetes/1-practice/backend-deployment.yaml 
+```
+3. Check pods: 
+```bash
+kubectl get pods
+```
+4. Test backend connection:
+```bash
+kubectl apply -f practices/kubernetes/1-practice/curl-pod.yaml
+# TEST connection
+kubectl exec -it curl -- nslookup practice-3-1-backend-service.default.svc.cluster.local
+# CURL backend
+kubectl exec -it curl -- curl http://practice-3-1-backend-service.default.svc.cluster.local:8000/
+```
+if it respond with `{"Hello":"World"}` the backend is well configured.
+5. Apply frontend pod:
+```bash
+kubectl apply -f practices/kubernetes/1-practice/frontend-pod.yaml 
+```
+6. Test frontend connection:
+```bash
+# GET FRONT IP
+kubectl get pods -o wide
+# CURL frontend
+kubectl exec -it curl -- curl http://<IP>:3000/
+```
+6. Clean up the example: 
+```bash
+kubectl delete -f practices/kubernetes/1-practice/curl-pod.yaml
+kubectl delete -f practices/kubernetes/1-practice/backend-service.yaml 
+kubectl delete -f practices/kubernetes/1-practice/backend-deployment.yaml 
+kubectl delete -f practices/kubernetes/1-practice/frontend-pod.yaml 
+```
