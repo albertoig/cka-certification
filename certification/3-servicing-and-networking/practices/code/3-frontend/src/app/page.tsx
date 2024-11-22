@@ -1,27 +1,26 @@
-import Image from "next/image";
+import { useState, useEffect } from 'react';
 
 export default function Page() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
-  const callAPI = async () => {
-		try {
-			const res = await fetch(
-				`${process.env.BACKEND_URL}/`
-			);
-			console.log(`BACKEND URL : ${process.env.BACKEND_URL}`);
-			const data = await res.json();
-			return data;
-		} catch (err) {
-			return err;
-		}
-	};
+  useEffect(() => {
+    const callAPI = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/`);
+        const data = await res.json();
+        setData(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
 
-  const data = callAPI()
-  .then(result => {
-	console.log(`BACKEND URL : ${process.env.BACKEND_URL}`);
-    return `Hello, This is the Frontend Practice of the CKA exam! The backend call result is: ${JSON.stringify(result)}`
-  })
-  .catch(error => {
-    return `Caught an error: ${error}`
-  });
-  return data
+    callAPI();
+  }, []);
+
+  if (error) return <p>Caught an error: {error}</p>;
+
+  if (!data) return <p>Loading...</p>;
+
+  return <p>Hello, This is the Frontend Practice of the CKA exam! The backend call result is: {JSON.stringify(data)}</p>;
 }

@@ -6,15 +6,16 @@ spec:
   containers:
   - name: practice-3-1-frontend
     image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/examples/code/3-frontend:latest
+    imagePullPolicy: Always
     env:
-    - name: BACKEND_URL
-      value: http://practice-3-1-backend-service.default.svc.cluster.local:8000/
+    - name: NEXT_PUBLIC_BACKEND_URL
+      value: "http://practice-3-1-backend-service.default.svc.cluster.local:8000/"
     ports:
     - containerPort: 3000
     resources:
       requests:
-        memory: "128Mi"
-        cpu: "100m"
-      limits:
         memory: "512Mi"
+        cpu: "150m"
+      limits:
+        memory: "1024Mi"
         cpu: "500m"
