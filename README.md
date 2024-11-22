@@ -12,6 +12,7 @@ The following list outlines the tools required for this project, which you shoul
 - [PyEnv](https://github.com/pyenv/pyenv)
 - [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
 - [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- [NVM](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
 ## GIT CONFIGURATIONS
 GPG signing is mandatory, you must sign your commits, [vigilant](https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits) mode is activated in this repository. 
