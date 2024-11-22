@@ -24,3 +24,16 @@ Kubernetes provides ways to scalate services, Getting the example of the `3.1 Se
 - Pods are ephemeral
 - IP Change each time a pod is created/recreated
 - 
+
+
+
+
+# Practices
+## Service and Endpoint
+![Practice 1](./diagrams/1.practice-services.excalidraw.png)
+As you can see in the diagram, the objective is to call from the navigator to the frontend URL and be able to retrieve information from the backend service. Once we call the frontend service, in an optimal situation, the service will respond with `Hello, This is the Frontend Example of the CKA exam! The backend call result is {"Hello":"World"}` where `{"Hello":"World"}` is coming from the backend service. To do so, we need to run the next commands:
+
+```bash
+```
+
+
