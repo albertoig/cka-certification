@@ -5,11 +5,11 @@
 			"name": "CKA certification"
 		},
 		{
-			"path": "./certification/3-servicing-and-networking/examples/code/3-backend", 
+			"path": "./certification/3-servicing-and-networking/practices/code/3-backend", 
 			"name": "3.1 Bancked Example"
 		},
 		{
-			"path": "./certification/3-servicing-and-networking/examples/code/3-frontend", 
+			"path": "./certification/3-servicing-and-networking/practices/code/3-frontend", 
 			"name": "3.1 Frontend Example"
 		}
 	],

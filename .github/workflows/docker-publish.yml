@@ -17,9 +17,9 @@ jobs:
     strategy:
       matrix:
         service:
-          - path: certification/3-servicing-and-networking/examples/code/3-backend
+          - path: certification/3-servicing-and-networking/practices/code/3-backend
             dockerfile: Dockerfile
-          - path: certification/3-servicing-and-networking/examples/code/3-frontend
+          - path: certification/3-servicing-and-networking/practices/code/3-frontend
             dockerfile: Dockerfile
     runs-on: ubuntu-latest
     steps:
