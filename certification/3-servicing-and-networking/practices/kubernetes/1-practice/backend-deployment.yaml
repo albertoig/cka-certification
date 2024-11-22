@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: practice-3-1-backend
-        image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/examples/code/3-backend:latest
+        image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/practices/code/3-backend:0.0.1
         ports:
         - containerPort: 8000
         resources:

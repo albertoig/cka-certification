@@ -5,10 +5,10 @@ metadata:
 spec:
   containers:
   - name: practice-3-1-frontend
-    image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/examples/code/3-frontend:latest
+    image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/practices/code/3-frontend:0.0.1
     imagePullPolicy: Always
     env:
-    - name: NEXT_PUBLIC_BACKEND_URL
+    - name: BACKEND_URL
       value: "http://practice-3-1-backend-service.default.svc.cluster.local:8000/"
     ports:
     - containerPort: 3000
