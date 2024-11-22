@@ -19,6 +19,8 @@ jobs:
         service:
           - path: certification/3-servicing-and-networking/examples/code/backend
             dockerfile: Dockerfile
+          - path: certification/3-servicing-and-networking/examples/code/3-frontend-example
+            dockerfile: Dockerfile
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
