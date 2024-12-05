@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: practice-3-1-curl
+  name: curl
 spec:
   containers:
   - name: curl

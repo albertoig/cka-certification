@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: practice-3-1-frontend
+  name: practice-3-2-frontend
 spec:
   containers:
-  - name: practice-3-1-frontend
-    image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/practices/code/3-frontend:0.0.2
+  - name: practice-3-2-frontend
+    image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/practices/code/3-frontend:0.0.1
     imagePullPolicy: Always
     env:
     - name: BACKEND_URL
-      value: "http://10.244.1.6:8000/"
+      value: "http://practice-3-2-backend-service.default.svc.cluster.local:8000/"
     ports:
     - containerPort: 3000
     resources:

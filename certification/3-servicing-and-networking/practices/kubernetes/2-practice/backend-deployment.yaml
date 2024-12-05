@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: practice-3-1-backend
+  name: practice-3-2-backend
   labels:
-    app: practice-3-1-backend
+    app: practice-3-2-backend
 spec:
   selector:
     matchLabels:
-      app: practice-3-1-backend
+      app: practice-3-2-backend
   replicas: 3
   template:
     metadata:
       labels:
-        app: practice-3-1-backend
+        app: practice-3-2-backend
     spec:
       containers:
-      - name: practice-3-1-backend
+      - name: practice-3-2-backend
         image: ghcr.io/albertoig/cka-certification/certification/3-servicing-and-networking/practices/code/3-backend:0.0.1
         ports:
         - containerPort: 8000
