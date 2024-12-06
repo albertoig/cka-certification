@@ -58,12 +58,18 @@ kubectl apply -f practices/kubernetes/1-practice/backend-pod.yaml
 ```
 5. Test the backend connection again:
 ```bash
-# GET FRONT IP
+# GET BACKEND IP
 kubectl get pods -o wide
 # CURL backend
 kubectl exec -it curl -- curl http://<IP>:8000
 ```
 It should fail because the IP changed. To avoid this problem, go to the next practice. 
+
+6. Clean up the example: 
+```bash
+kubectl delete -f practices/kubernetes/1-practice/curl-pod.yaml
+kubectl delete -f practices/kubernetes/1-practice/backend-pod.yaml 
+```
 
 ## Service and Endpoint
 ![Practice 2](./diagrams/2.practice-services.excalidraw.png)
@@ -90,6 +96,7 @@ kubectl exec -it curl -- nslookup practice-3-2-backend-service.default.svc.clust
 kubectl exec -it curl -- curl http://practice-3-2-backend-service.default.svc.cluster.local:8000/
 ```
 if it respond with `{"Hello":"World"}` the backend is well configured.
+
 5. Apply the frontend pod:
 ```bash
 kubectl apply -f practices/kubernetes/2-practice/frontend-pod.yaml 
@@ -107,4 +114,62 @@ kubectl delete -f practices/kubernetes/2-practice/curl-pod.yaml
 kubectl delete -f practices/kubernetes/2-practice/backend-service.yaml 
 kubectl delete -f practices/kubernetes/2-practice/backend-deployment.yaml 
 kubectl delete -f practices/kubernetes/2-practice/frontend-pod.yaml 
+```
+
+## NodePort
+
+## Load Balancer
+
+# Important Commands
+## 1. Create service manifest YAML for pods
+Step 1: Create an NGINX pod
+```bash
+kubectl run nginx --image nginx
+```
+Step 2: Create a basic service YAML for the pod
+```bash
+kubectl expose pod nginx --name practice-service-manifest --port=80 --target-port=80 --dry-run=client -o yaml
+```
+Step 3: Create a service NodePort YAML for the pod `nginx`
+```bash
+kubectl expose pod nginx --name practice-service-manifest --port=80 --target-port=80 --dry-run=client -o yaml --type=NodePort
+```
+
+## 2. Create service manifest YAML for Deployment
+Step 1: Create a new Deployment
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-service-manifest-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+```
+OR
+```bash
+kubectl apply -f ./practices/kubernetes/general/2.1.practice.service-manifest.yaml
+```
+Step 2: Create service manifest YAML for Deployment: 
+```bash
+kubectl expose deployment practice-service-manifest-deployment --name practice-service-manifest-deployment --port=80 --target-port=80 --dry-run=client -o yaml
+```
+Step 3: Create service NodePort manifest YAML for Deployment:
+```bash
+kubectl expose deployment practice-service-manifest-deployment --name practice-service-manifest-nodeport-deployment --port=80 --target-port=80  --type=NodePort --dry-run=client -o yaml 
+```
+
+## 3. See all expose examples
+```bash
+kubectl expose --help
 ```
