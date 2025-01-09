@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "albertoig"
-    key    = "cka/terraform.tfstate"
+    key    = "cka/kubeadm/terraform.tfstate"
     region = "us-east-1"
   }
 
